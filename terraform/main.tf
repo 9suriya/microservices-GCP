@@ -91,3 +91,12 @@ resource "null_resource" "wait_conditions" {
     resource.null_resource.apply_deployment
   ]
 }
+  
+  # External data source to retrieve environment variable overrides
+data "external" "env_override" {
+  program = ["cmd.exe", "/C", "scripts\\check_env.bat"]
+}
+
+  
+  
+  
